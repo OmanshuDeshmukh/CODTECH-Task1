@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newspaper Reader App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Newspaper Reader</h1>
+        </header>
+        <main>
+            <section id="news-articles">
+                <!-- News articles will be loaded here -->
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Newspaper Reader App</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+article {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+article:last-of-type {
+    border-bottom: none;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const articles = [
+        {
+            title: 'Breaking News: Major Event Happened',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        },
+        {
+            title: 'Local News: Community Event Announced',
+            content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        },
+        {
+            title: 'Sports: Big Game Results',
+            content: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+        }
+    ];
+
+    const newsContainer = document.getElementById('news-articles');
+
+    articles.forEach(article => {
+        const articleElement = document.createElement('article');
+        articleElement.innerHTML = `
+            <h2>${article.title}</h2>
+            <p>${article.content}</p>
+        `;
+        newsContainer.appendChild(articleElement);
+    });
+});
